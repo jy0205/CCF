@@ -14,18 +14,19 @@ struct node{
 
 node Map[N + M];
 bool visit[N + M];
-int ans = -1,now_dis = -1;
+int ans = -1,now_dis = 0;
 
 void dfs(int x){
 	visit[x] = true;
-	now_dis++;
 	if(now_dis > ans)
 		ans = now_dis;
 	for(int i = 0;i < Map[x].connect.size();i++){
-		if(!visit[Map[x].connect[i]])
+		if(!visit[Map[x].connect[i]]){
+			now_dis++;
 			dfs(Map[x].connect[i]);
+			now_dis--;
+		} 	
 	}
-	now_dis--;
 }
 
 int main(){

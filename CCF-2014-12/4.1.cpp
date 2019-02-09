@@ -23,7 +23,7 @@ int find(int x){
 	if(connect[x] == -1)
 		return x;
 	else
-		return find(connect[x]);	
+		return connect[x]=find(connect[x]);	
 }
 
 int main(){
